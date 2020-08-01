@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Sending
+          TITLE as property
+          QUESTION as slot
+          OPTIONS using javaScript by settting dynamic property
+      -->
+    <survey-question title="Angular Element Survey Example">
+      <h4 slot="question">Who is best Cricket batsman</h4>
+    </survey-question>
+    <script src="survey-question.js"></script>
+    <script>
+      var el = document.querySelector("survey-question");
+      if (el) {
+        /*
+        Sending
+        OPTIONS using javaScript by settting dynamic property
+        */
+        el.options = [
+          "Sachin Tendulkar",
+          "Rahul Dravid",
+          "Saurab Ganguli",
+          "VVS Lakshman",
+        ];
+        el.addEventListener("survey-submit-event", (event) => {
+          console.log("Selected Option: ", event.detail.value);
+        });
+      }
+    </script>
+  </body>
+</html>
